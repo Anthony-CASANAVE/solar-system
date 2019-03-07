@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8>
+    <title>My first three.js app</title>
+    <style>
+        body { margin: 0; }
+        canvas { width: 100%; height: 100% }
+    </style>
+</head>
+<body>
+<script src="script/three.js"></script>
+<script>
+
+    // Set the scene size.
+    const WIDTH = window.innerWidth;
+    const HEIGHT = window.innerHeight;
+
+    // Set some camera attributes.
+    const VIEW_ANGLE = 75;
+    const ASPECT = WIDTH / HEIGHT;
+    const NEAR = 0.1;
+    const FAR = 10000;
+
+    // Get the DOM element to attach to
+    const container =
+        document.querySelector('body');
+
+    // Create a WebGL renderer, camera
+    // and a scene
+    const renderer = new THREE.WebGLRenderer();
+    const camera =
+        new THREE.PerspectiveCamera(
+            VIEW_ANGLE,
+            ASPECT,
+            NEAR,
+            FAR
+        );
+
+        const scene = new THREE.Scene();
+
+        // Add the camera to the scene.
+        scene.add(camera);
+
+    // Start the renderer.
+    renderer.setSize(WIDTH, HEIGHT);
+
+    // Attach the renderer-supplied
+    // DOM element.
+    container.appendChild(renderer.domElement);
+
+    // create a point light
+    const pointLight =
+        new THREE.PointLight(0xFFFFFF);
+
+    // set its position
+    pointLight.position.x = 10;
+    pointLight.position.y = 50;
+    pointLight.position.z = 130;
+
+    // add to the scene
+    scene.add(pointLight);
+
+    // create a point light 2
+    const pointLight2 =
+        new THREE.PointLight(0x0000FF);
+
+    // set its position
+    pointLight2.position.x = -10;
+    pointLight2.position.y = -50;
+    pointLight2.position.z = 130;
+
+    // add to the scene
+    scene.add(pointLight2);
+
+    // create the sphere's material
+    const sunMaterial =
+        new THREE.MeshPhongMaterial(
+            {
+                color: 0xffff28
+            });
+
+    // Set up the sphere vars
+    const RADIUS = 1100;
+    const SEGMENTS = 32;
+    const RINGS = 32;
+
+    // Create a new mesh with
+    // sphere geometry - we will cover
+    // the sphereMaterial next!
+    const sun = new THREE.Mesh(
+
+        new THREE.SphereGeometry(
+            RADIUS,
+            SEGMENTS,
+            RINGS),
+
+        sunMaterial);
+
+    // Move the Sphere back in Z so we
+    // can see it.
+    sun.position.z = -3000;
+
+    // Finally, add the sphere to the scene.
+    scene.add(sun);
+
+    // Sphere2
+
+    const earthMaterial =
+        new THREE.MeshPhongMaterial(
+            {
+                color: 0x0505ff
+            });
+
+    // Set up the sphere vars
+    const RADIUS2 = 12;
+    const SEGMENTS2 = 8;
+    const RINGS2 = 8;
+
+    // Create a new mesh with
+    // sphere geometry - we will cover
+    // the sphereMaterial next!
+    const earth = new THREE.Mesh(
+
+        new THREE.SphereGeometry(
+            RADIUS2,
+            SEGMENTS2,
+            RINGS2),
+
+        earthMaterial);
+
+    // Move the Sphere back in Z so we
+    // can see it.
+    earth.position.z = -150;
+
+    // Finally, add the sphere to the scene.
+    scene.add(earth);
+
+    // Sphere 2 fin
+
+    // Sphere3
+
+    const moonMaterial =
+        new THREE.MeshPhongMaterial(
+            {
+                color: 0x555555
+            });
+
+    // Set up the sphere vars
+    const RADIUS3 = 4;
+    const SEGMENTS3 = 6;
+    const RINGS3 = 6;
+
+    // Create a new mesh with
+    // sphere geometry - we will cover
+    // the sphereMaterial next!
+    const moon = new THREE.Mesh(
+
+        new THREE.SphereGeometry(
+            RADIUS3,
+            SEGMENTS3,
+            RINGS3),
+
+        moonMaterial);
+
+    // Move the Sphere back in Z so we
+    // can see it.
+    moon.position.z = -120;
+
+    // Finally, add the sphere to the scene.
+    scene.add(moon);
+
+    // Sphere 3 fin
+
+
+    function update () {
+        // Draw!
+        renderer.render(scene, camera);
+
+        // Schedule the next frame.
+        requestAnimationFrame(update);
+    }
+
+    // Schedule the first frame.
+    requestAnimationFrame(update);
+
+
+</script>
+</body>
+</html>
