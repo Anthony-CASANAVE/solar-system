@@ -9,6 +9,7 @@
     </style>
 </head>
 <body>
+
 <script src="script/three.js"></script>
 <script>
 
@@ -18,7 +19,7 @@
 
     // Set some camera attributes.
     const VIEW_ANGLE = 75;
-    const ASPECT = WIDTH / HEIGHT;
+    const ASPECT = WIDTH / HEIGHT; //lines 17/18
     const NEAR = 0.1;
     const FAR = 10000;
 
@@ -31,16 +32,21 @@
     const renderer = new THREE.WebGLRenderer();
     const camera =
         new THREE.PerspectiveCamera(
-            VIEW_ANGLE,
-            ASPECT,
-            NEAR,
-            FAR
+            VIEW_ANGLE, // line 21
+            ASPECT, // line 22
+            NEAR, // line 23
+            FAR // line 24
         );
+    camera.position.set(0,0,1500); // Set position like this
+    camera.lookAt(new THREE.Vector3(0,0,0)); // Set look at coordinate like this
 
-        const scene = new THREE.Scene();
+    const scene = new THREE.Scene();
 
-        // Add the camera to the scene.
-        scene.add(camera);
+    // Add the camera to the scene.
+    scene.add(camera);
+
+
+
 
     // Start the renderer.
     renderer.setSize(WIDTH, HEIGHT);
@@ -49,14 +55,16 @@
     // DOM element.
     container.appendChild(renderer.domElement);
 
+
+    // Lights--------------------------------------------------------
     // create a point light
     const pointLight =
         new THREE.PointLight(0xFFFFFF);
 
     // set its position
-    pointLight.position.x = 10;
-    pointLight.position.y = 50;
-    pointLight.position.z = 130;
+    pointLight.position.x = 0;
+    pointLight.position.y = 0;
+    pointLight.position.z = 700;
 
     // add to the scene
     scene.add(pointLight);
@@ -73,6 +81,9 @@
     // add to the scene
     scene.add(pointLight2);
 
+
+    // Primitives------------------------------------------------------------
+    // SunInit ---------------------------------------
     // create the sphere's material
     const sunMaterial =
         new THREE.MeshPhongMaterial(
@@ -81,7 +92,7 @@
             });
 
     // Set up the sphere vars
-    const RADIUS = 1100;
+    const RADIUS = 1392;
     const SEGMENTS = 32;
     const RINGS = 32;
 
@@ -99,13 +110,14 @@
 
     // Move the Sphere back in Z so we
     // can see it.
-    sun.position.z = -3000;
+    sun.position.z = 0;
 
     // Finally, add the sphere to the scene.
     scene.add(sun);
 
-    // Sphere2
 
+    // EarthInit ---------------------------------------
+    // create the sphere's material
     const earthMaterial =
         new THREE.MeshPhongMaterial(
             {
@@ -113,7 +125,7 @@
             });
 
     // Set up the sphere vars
-    const RADIUS2 = 12;
+    const RADIUS2 = 13;
     const SEGMENTS2 = 8;
     const RINGS2 = 8;
 
@@ -131,15 +143,14 @@
 
     // Move the Sphere back in Z so we
     // can see it.
-    earth.position.z = -150;
+    earth.position.z = -149600;
 
     // Finally, add the sphere to the scene.
     scene.add(earth);
 
-    // Sphere 2 fin
 
-    // Sphere3
-
+    // MoonInit ---------------------------------------
+    // create the sphere's material
     const moonMaterial =
         new THREE.MeshPhongMaterial(
             {
@@ -147,7 +158,7 @@
             });
 
     // Set up the sphere vars
-    const RADIUS3 = 4;
+    const RADIUS3 = 3.5;
     const SEGMENTS3 = 6;
     const RINGS3 = 6;
 
@@ -163,11 +174,9 @@
 
         moonMaterial);
 
-    // Move the Sphere back in Z so we
     // can see it.
-    moon.position.z = -120;
+    moon.position.z = -149600;
 
-    // Finally, add the sphere to the scene.
     scene.add(moon);
 
     // Sphere 3 fin
