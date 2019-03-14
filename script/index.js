@@ -1,12 +1,23 @@
+//Personal bookmarks :
+
+//AddPlanetArea -> areas where things have to be added to make a new sphere object (planets & moons)
+
+
+
+
+
+
 //Creating scene object names.
-var pointLight, sun, moon, earth, earthOrbit, ring, controls, scene, renderer, scene;
+//AddPlanetArea
+var pointLight, sun, moon, earth, earthOrbit, ring, controls, scene, renderer;
 
 //Setting the segments every planets and moons will have.
 var planetSegments = 32;
 
 //Setting the variables for planets and moons.
+//AddPlanetArea
 var earthData = constructPlanetData(365.2564, 0.015, 25, "earth", "img/earth.jpg", 1, planetSegments);
-var moonData = constructPlanetData(29.5, 0.01, 2.8, "moon", "img/moon.jpg", 0.5, planetSegments);
+var moonData = constructPlanetData(29.5, -0.01, 2.8, "moon", "img/moon.jpg", 0.5, planetSegments);
 
 //Set the speed of planets and moons orbits, and if the rotation is activated.
 var orbitData = {value: 200, runOrbit: true, runRotation: true};
@@ -72,6 +83,7 @@ function getMaterial(type, color, myTexture) {
 //Ajouter les planètes ici pour avoir un anneau montrant leur orbite.
 function createVisibleOrbits() {
     var orbitWidth = 0.01;
+    //AddPlanetArea
     earthOrbit = getRing(
         earthData.distanceFromAxis + orbitWidth,
         earthData.distanceFromAxis - orbitWidth,
@@ -154,7 +166,7 @@ function update(renderer, scene, camera, controls) {
     controls.update();
 
     var time = Date.now();
-
+    //AddPlanetArea
     movePlanet(earth, earthData, time);
     movePlanet(ring, earthData, time, true);
     moveMoon(moon, earth, moonData, time);
@@ -169,7 +181,7 @@ function init() {
     camera = new THREE.PerspectiveCamera(
         45/*FOV*/,
         window.innerWidth / window.innerHeight/*Setting screen ratio*/,
-        1,/*Near clippong for planets*/
+        1,/*Near clipping for planets*/
         1000/*Far clipping for planets*/
     );
     camera.position.z = 30;
@@ -216,15 +228,16 @@ function init() {
     //Add the glowing effect around the sun.
     var spriteMaterial = new THREE.SpriteMaterial({
         map: new THREE.ImageUtils.loadTexture("img/glow.png"),
-        usScreenCoordinates: false,
+        useScreenCoordinates: false,
         color: 0xffffee,
         transparent: false,
         blending: THREE.AdditiveBlending
-        });
+    });
     var sprite = new THREE.Sprite(spriteMaterial);
     sprite.scale.set(70, 70, 1.0);
     sun.add(sprite);
 
+    //AddPlanetArea
     earth = loadTexturedPlanet(earthData, earthData.distanceFromAxis, 0, 0);
     moon = loadTexturedPlanet(moonData, moonData.distanceFromAxis, 0, 0);
     ring = getTube(1.8, 0.05, 480, 0x757064, "ring", earthData.distanceFromAxis);

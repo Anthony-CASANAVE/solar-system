@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="017f873e-ac65-4df5-adc0-c60a0c05ee42" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/script/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/script/index.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -28,8 +27,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/script/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="212" column="39" selection-start-line="212" selection-start-column="39" selection-end-line="212" selection-end-column="39" />
+            <state relative-caret-position="331">
+              <caret line="146" column="44" lean-forward="true" selection-start-line="146" selection-start-column="44" selection-end-line="146" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -54,6 +53,10 @@
       <find>Object</find>
       <find>myData</find>
       <find>sun</find>
+      <find>AddPlanetArea</find>
+      <find>earth</find>
+      <find>sprite</find>
+      <find>rota</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -69,9 +72,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="613" />
+    <option name="x" value="594" />
     <option name="y" value="3" />
-    <option name="width" value="732" />
+    <option name="width" value="751" />
     <option name="height" value="738" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -139,15 +142,15 @@
       <workItem from="1552044100515" duration="8731000" />
       <workItem from="1552396560563" duration="24541000" />
       <workItem from="1552492619957" duration="7793000" />
-      <workItem from="1552572449440" duration="3561000" />
+      <workItem from="1552572449440" duration="6775000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58021000" />
+    <option name="totallyTimeSpent" value="61235000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="613" y="3" width="732" height="738" extended-state="0" />
+    <frame x="594" y="3" width="751" height="738" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.36530325" />
@@ -216,8 +219,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/script/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="212" column="39" selection-start-line="212" selection-start-column="39" selection-end-line="212" selection-end-column="39" />
+        <state relative-caret-position="331">
+          <caret line="146" column="44" lean-forward="true" selection-start-line="146" selection-start-column="44" selection-end-line="146" selection-end-column="44" />
         </state>
       </provider>
     </entry>
